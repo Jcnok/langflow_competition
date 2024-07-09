@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "langflow-competition"
+version = "0.1.0"
+description = "repositório com os projetos da competição de IA com langflow"
+authors = ["Julio Okuda <julio.okuda@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.1"
+langflow = "^1.0.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
