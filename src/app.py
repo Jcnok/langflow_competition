@@ -2,11 +2,11 @@ from dotenv import load_dotenv
 import os
 from langflow.load import run_flow_from_json
 # Obter a chave de API da variável de ambiente
-openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_key = os.getenv("OPENAI_API_KEY")
 TWEAKS = {
   "ParseData-v44gO": {},
   "Prompt-8gSmO": {},
-  "OpenAIModel-o5tIk": {"openai_api_key":openai_api_key},
+  "OpenAIModel-o5tIk": {"openai_api_key":openai_key},
   "ChatOutput-jb3cX": {},
   "File-auXkC": {},
   "ChatOutput-siTeg": {},
