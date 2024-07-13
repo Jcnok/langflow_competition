@@ -1,5 +1,3 @@
-from dotenv import load_dotenv
-import os
 import argparse
 import json
 from argparse import RawTextHelpFormatter
@@ -11,25 +9,36 @@ try:
 except ImportError:
     warnings.warn("Langflow provides a function to help you upload files to the flow. Please install langflow to use it.")
     upload_file = None
+from dotenv import load_dotenv
+import os
 
-BASE_API_URL = "http://127.0.0.1:7860/api/v1/run"
-FLOW_ID = "919e809f-e600-42d1-8779-cf8c8a83ebf2"
-ENDPOINT = "" # You can set a specific endpoint name in the flow settings
+# Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
+
+# Obter a chave de API da variável de ambiente
 openai_api_key = os.getenv("OPENAI_API_KEY")
+
+# Verificar se a chave de API foi carregada corretamente
+if not openai_api_key:
+    raise ValueError("OPENAI_API_KEY não está definida. Verifique se o arquivo .env está configurado corretamente.")
+else:
+  print("api passou")
+BASE_API_URL = "http://127.0.0.1:7860/api/v1/run"
+FLOW_ID = "0c21b5fd-e18d-42fe-84a6-adfe82a1647d"
+ENDPOINT = "" # You can set a specific endpoint name in the flow settings
 
 # You can tweak the flow by adding a tweaks dictionary
 # e.g {"OpenAI-XXXXX": {"model_name": "gpt-4"}}
 TWEAKS = {
-  "ParseData-v44gO": {
+  "ParseData-HL2NO": {
     "sep": "\n",
     "template": "{text}"
   },
-  "Prompt-8gSmO": {
-    "template": "{conteudo}\n\nDada o conteúdo acima, forneça um resumo visando a maior similaridade versus redução entre o texto, utilize os parágrafos mais importântes para melhrorar o desempenho, seja breve e especifico com no máximo 300 caracteres.\n\nresumo: ",
-    "conteudo": ""
+  "Prompt-ohi8K": {
+    "template": "{conteúdo}\n\ncrie um resumo com as principais palavras compostas do conteúdo, seja específico e não ultrapasse 300 caracteres.\nResumo: ",
+    "conteúdo": ""
   },
-  "OpenAIModel-o5tIk": {
+  "OpenAIModel-Y3MWq": {
     "input_value": "",
     "json_mode": False,
     "max_tokens": 1000,
@@ -43,25 +52,19 @@ TWEAKS = {
     "system_message": "",
     "temperature": 0.3
   },
-  "ChatOutput-jb3cX": {
-    "data_template": "{text}",
-    "input_value": "",
-    "sender": "Machine",
-    "sender_name": "Meu Resumo",
-    "session_id": ""
-  },
-  "File-auXkC": {
-    "path": "texto_markdow.txt",
+  "File-OGgXd": {
+    "path": "desafio1.md",
     "silent_errors": False
   },
-  "ChatOutput-siTeg": {
+  "ChatOutput-uEBVN": {
     "data_template": "{text}",
     "input_value": "",
     "sender": "Machine",
     "sender_name": "Score",
-    "session_id": ""
+    "session_id": "",
+    "store_message": True
   },
-  "GroupNode-k67Uv": {
+  "GroupNode-ySC47": {
     "chunk_size": 1000,
     "client": "",
     "code": "from langflow.custom import Component\nfrom langflow.helpers.data import data_to_text\nfrom langflow.io import DataInput, MultilineInput, Output, StrInput\nfrom langflow.schema.message import Message\n\n\nclass ParseDataComponent(Component):\n    display_name = \"Parse Data\"\n    description = \"Convert Data into plain text following a specified template.\"\n    icon = \"braces\"\n\n    inputs = [\n        DataInput(name=\"data\", display_name=\"Data\", info=\"The data to convert to text.\"),\n        MultilineInput(\n            name=\"template\",\n            display_name=\"Template\",\n            info=\"The template to use for formatting the data. It can contain the keys {text}, {data} or any other key in the Data.\",\n            value=\"{text}\",\n        ),\n        StrInput(name=\"sep\", display_name=\"Separator\", advanced=True, value=\"\\n\"),\n    ]\n\n    outputs = [\n        Output(display_name=\"Text\", name=\"text\", method=\"parse_data\"),\n    ]\n\n    def parse_data(self) -> Message:\n        data = self.data if isinstance(self.data, list) else [self.data]\n        template = self.template\n\n        result_string = data_to_text(template, data, sep=self.sep)\n        self.status = result_string\n        return Message(text=result_string)\n",
@@ -86,6 +89,9 @@ TWEAKS = {
     "input_message": "",
     "sep": "\n",
     "template": "Score Inicial: {similaridade}\nFator de Redução: {fator_reducao} (1.0 = sem redução)\nScore Final: {score_final}\n"
+  },
+  "TextOutput-fqVwp": {
+    "input_value": ""
   }
 }
 
