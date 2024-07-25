@@ -1,0 +1,70 @@
+1,"quantos cortes são necessários para dividir uma torta de maçã até chegar a um átomo?","Cerca de noventa cortes."
+
+2,"o que mudou na percepção de Júpiter após o encontro da Voyager 1, segundo o autor?","Júpiter passou a ser visto como um lugar a ser explorado, não apenas um ponto de luz."
+
+3,"qual é o principal risco de fingir irracionalidade para um blefe nuclear eficaz?","Acostumar-se com a irracionalidade e deixar de ser fingimento."
+
+4,"segundo Farrington, qual fator econômico levou ao declínio da ciência jônica?","A economia escravista."
+
+5,"qual foi o problema enfrentado pela Voyager 1 que poderia ter comprometido a coleta de dados científicos?","Problema no posicionamento da lança da plataforma de varredura científica."
+
+6,"o que Kepler acreditava sobre a geometria em relação à criação do universo?","Kepler acreditava que a geometria existiu antes da Criação e era coeterna com a Mente de Deus."
+
+7,"qual foi o impacto da rejeição da existência do "éter luminífero" na compreensão da propagação da luz?","Mostrou que a luz viaja no vácuo, fundamentando a teoria da relatividade de Einstein."
+
+8,"Qual é a analogia usada no texto para descrever a percepção de objetos ao viajar próximo à velocidade da luz?","Os objetos aparecem comprimidos numa pequena janela circular à sua frente."
+
+9,"Qual é a opinião de Carl Sagan sobre a possibilidade de formas de vida baseadas em elementos diferentes do carbono e água?","Sagan acha a possibilidade interessante, mas prefere carbono e água pela abundância e adequação para a vida."
+
+10,"qual é a visão perturbadora e instigante sobre a hierarquia de universos mencionada no texto?","A visão é de uma hierarquia infinita de universos, onde cada partícula pode ser um universo, e nosso universo pode ser uma partícula em um universo maior."
+
+
+Estudo 1 - Rag modelo base
+
+
+https://app.langwatch.ai/share/GsPojko2Rdckcc4aNbQo7?span=span_YpSWCocJsqkqiET_30Cxo 1.0
+https://app.langwatch.ai/share/x8XsNF5dO3Rw2Woe4pKHJ?span=span_qJarGuOJXt3-LoPJdy3qJ 0.74
+https://app.langwatch.ai/share/VDhJuT6e8xsgcygVuzA4L?span=span_j99VtTfoIEaJK_R186Q6L 0.72
+https://app.langwatch.ai/share/uGy-M72oND3V0HMGY27AB?span=span_t_kdho2MWyShBPlfdP7SN 0.73
+https://app.langwatch.ai/share/uP3O1kxPgvid0oNIZP7-I?span=span_xFRjG4mJve3HjAF2GFvMn 1.0
+https://app.langwatch.ai/share/OeVw7jkg3dG10NZfKTqoi?span=span_ZJxp_xvyj91eqNiD1R-l8 0.74
+https://app.langwatch.ai/share/LOkuL9FTcK-KLf5xN-_EH?span=span_i653A-M6UcRMPsXzrJoog 0.83
+https://app.langwatch.ai/share/qEM9imWgUveLyVoI6-EZf?span=span_lJT2KezBufTusWGp1qrQK 0.71
+https://app.langwatch.ai/share/l_WlpVJ8yauPqtomfK6te?span=span_bN6OvVrMaTFblTJSGF-oU 0.83
+https://app.langwatch.ai/share/hwbfb8Pnem8LtutW0CnY9?span=span__w3sdZy8RKG-z2OX7En4u 0.74
+Média										     0.804	
+
+testes:
+*  mudar o number of resulta na pesquisa do chromadb não mudou nada.
+* mudar o type search para MMR piorou o answer correctly mas melhorou os outros resultados.
+* 
+
+Estudo 2 - alterei o split text: chunk size > 500
+
+https://app.langwatch.ai/share/igOLC9zJ3c93fHScHSWUZ?span=span_Z3mqq9yhg8J-cS8IqT7Lq 1.0
+https://app.langwatch.ai/share/xVPePSjV6_r-jM1tKQHGe?span=span_uStz4QuySTANkvRxtbZdS .74
+https://app.langwatch.ai/share/39wMA-xsQfzzpgGbKahdh?span=span_ncQGKkINRyFyEY4bqmo0a .71
+https://app.langwatch.ai/share/NtFlxhLcL2i5Inh58DWbi?span=span_byy8TBmMNqAuM9ckA-IFP .23
+https://app.langwatch.ai/share/5KFgXuvJbZfQ9pB4KMDLD?span=span_9zOpUUKBiBb2-YRvHv-r3 1.0
+https://app.langwatch.ai/share/5cQCsBFQhXCx7lZTObyuS?span=span_qDSBVp2XvdwB_taVL-n6V .73
+https://app.langwatch.ai/share/Zq62TFnUQB5MYxdaCV22a?span=span_fdzSj_qU8f5dtmi9dGHcI .82
+https://app.langwatch.ai/share/arm_e2z78ssgTXujQhRH8?span=span_a3aoDsoqrB4SablJ-zVRQ .73
+https://app.langwatch.ai/share/3LcEjbQjzdjaT33H02-eG?span=span_X3oFRDi_2t5W7GJj5dlx7 .73
+https://app.langwatch.ai/share/aQye0kkeSYPVS15swMoLA?span=span_LebMZCTCXiyrvg_ZBJ7Li .74
+Média										     0.743	
+
+testes:
+* neste caso, diminuir o chunk size piorou os resultados;
+
+https://app.langwatch.ai/share/F3YpaCDg6AAUJ3tMQ_-Jf?span=span_99tvSA0MVUvevIgiyrXo2 1.0
+https://app.langwatch.ai/share/rZWSY10Uxxe_1EdbB_KKF?span=span_JiZyqE0yDA7I-lQItFNyI .74
+https://app.langwatch.ai/share/GqAO9ZUraCQA81FqNLvJK?span=span_aE-DUIbXSIwHUMVWZgegS .72
+https://app.langwatch.ai/share/u-Q4liqBNdfAMzkMJs6MO?span=span_Lh9x42ePgoUFKPuAfXEPU .72
+https://app.langwatch.ai/share/x17jZoLzw5u-0bkZ-StGg?span=span_jJ2q1vuaY56bH2jSKZajA 1.0
+https://app.langwatch.ai/share/GRO4wHpPrH15Jz-ckI-74?span=span_e_BOJ3J09tOgy1Lg8_Vj8 .74
+https://app.langwatch.ai/share/HakCxrP_3ugwYoc9AZ86s?span=span_VVg_zKK-SAr93HYxIoLSu .83
+https://app.langwatch.ai/share/qpCSQ6ch1EKAq7YdscltB?span=span_Hxe7Tu31gQddEIE3KNToS .73
+https://app.langwatch.ai/share/1_VH1Am6b69KfnSsNtL7R?span=span_ByUn8fnw_wGFWkxX3c7kh .73
+https://app.langwatch.ai/share/Onw9BGHzAvm4jndSGHoti?span=span_f2FcxsMHcshIoIG2NmG-w .84
+Média										     0.805	
+
